@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N8V-35-Vvb">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--File Management View Controller-->
+        <scene sceneID="K4R-gE-1UR">
+            <objects>
+                <viewController id="N8V-35-Vvb" customClass="FileManagementViewController" customModule="RukayaFileManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2iv-Qc-UNb">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_1" translatesAutoresizingMaskIntoConstraints="NO" id="10n-iX-HP0">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cy6-X1-DoV" userLabel="authLabel">
+                                <rect key="frame" x="215" y="466" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="17"/>
+                                <color key="textColor" white="0.25" alpha="0.4454650879" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sNk-Ff-Xpa">
+                                <rect key="frame" x="20" y="99" width="390" height="32"/>
+                                <color key="backgroundColor" white="0.92803842979999995" alpha="0.90338061010000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="Camera"/>
+                                    <segment title="Screenshots"/>
+                                    <segment title="Videos"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="N8V-35-Vvb" eventType="valueChanged" id="Hqf-N5-P0E"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rQE-oC-myu">
+                                <rect key="frame" x="20" y="140" width="390" height="718"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="5" id="3zf-Aq-5bK">
+                                    <size key="itemSize" width="114" height="114"/>
+                                    <size key="estimatedItemSize" width="114" height="114"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="go9-7c-h12">
+                                        <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gdj-uI-abN">
+                                            <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="114" height="114"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="N8V-35-Vvb" id="4AI-NX-qxN"/>
+                                    <outlet property="delegate" destination="N8V-35-Vvb" id="UMq-8u-yJ3"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2Y0-gP-W5T"/>
+                        <color key="backgroundColor" red="0.94118225570000003" green="0.92131954429999996" blue="0.94902354479999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="rQE-oC-myu" firstAttribute="leading" secondItem="2Y0-gP-W5T" secondAttribute="leading" constant="20" id="770-NK-WUW"/>
+                            <constraint firstItem="2Y0-gP-W5T" firstAttribute="trailing" secondItem="sNk-Ff-Xpa" secondAttribute="trailing" constant="20" id="AnY-M4-Q8e"/>
+                            <constraint firstItem="2Y0-gP-W5T" firstAttribute="trailing" secondItem="rQE-oC-myu" secondAttribute="trailing" constant="20" id="Dnx-LG-JQ6"/>
+                            <constraint firstItem="2Y0-gP-W5T" firstAttribute="bottom" secondItem="rQE-oC-myu" secondAttribute="bottom" constant="40" id="Era-y7-Qg8"/>
+                            <constraint firstItem="rQE-oC-myu" firstAttribute="top" secondItem="sNk-Ff-Xpa" secondAttribute="bottom" constant="10" id="HNl-Og-7XE"/>
+                            <constraint firstItem="sNk-Ff-Xpa" firstAttribute="top" secondItem="2Y0-gP-W5T" secondAttribute="top" constant="40" id="TM5-2G-IUp"/>
+                            <constraint firstItem="10n-iX-HP0" firstAttribute="trailing" secondItem="2Y0-gP-W5T" secondAttribute="trailing" id="UQR-35-BYv"/>
+                            <constraint firstItem="sNk-Ff-Xpa" firstAttribute="leading" secondItem="2Y0-gP-W5T" secondAttribute="leading" constant="20" id="VTX-57-e77"/>
+                            <constraint firstAttribute="bottom" secondItem="10n-iX-HP0" secondAttribute="bottom" id="WZD-sR-G9Q"/>
+                            <constraint firstItem="10n-iX-HP0" firstAttribute="leading" secondItem="2Y0-gP-W5T" secondAttribute="leading" id="ckg-Xb-JHD"/>
+                            <constraint firstItem="10n-iX-HP0" firstAttribute="top" secondItem="2iv-Qc-UNb" secondAttribute="top" id="ext-B0-gFF"/>
+                            <constraint firstItem="cy6-X1-DoV" firstAttribute="centerY" secondItem="2iv-Qc-UNb" secondAttribute="centerY" id="gXv-yX-ekd"/>
+                            <constraint firstItem="cy6-X1-DoV" firstAttribute="centerX" secondItem="2iv-Qc-UNb" secondAttribute="centerX" id="hjD-HO-wM7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authLabel" destination="cy6-X1-DoV" id="DNs-Zz-HeT"/>
+                        <outlet property="collectionView" destination="rQE-oC-myu" id="BN2-kK-40Y"/>
+                        <outlet property="segmentedControl" destination="sNk-Ff-Xpa" id="Mge-3U-nWQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXW-cg-o8O" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122.79069767441861" y="3.8626609442060089"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background_1" width="640" height="1136"/>
+    </resources>
+</document>
