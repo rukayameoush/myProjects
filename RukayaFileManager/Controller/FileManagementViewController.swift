@@ -9,6 +9,7 @@ import Photos
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
+import UserNotifications
 
 class FileManagementViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -199,6 +200,11 @@ class FileManagementViewController: UIViewController, UICollectionViewDelegate, 
             }  else if forItem.mediaType == .video {
                 Utilities().uploadVideo(for: forItem, to: collectionReference)
             }
+            let content = UNMutableNotificationContent()
+            content.title = "Media Stored"
+            content.body = "Your media has been stored in Firestore."
+            let request = UNNotificationRequest(identifier: "MediaStoredNotification", content: content, trigger: nil)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
         
         let deleteAction = UIAlertAction(title: "Delete From Gallery", style: .destructive) { (action) in
@@ -206,6 +212,11 @@ class FileManagementViewController: UIViewController, UICollectionViewDelegate, 
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
+            let content = UNMutableNotificationContent()
+            content.title = "Media Deleted"
+            content.body = "Your media has been deleted from the gallery."
+            let request = UNNotificationRequest(identifier: "MediaDeletedNotification", content: content, trigger: nil)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
